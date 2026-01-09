@@ -58,12 +58,12 @@ function firstResolve(message) {
   document.body.append(div);
 }
 
-function firstReject(message) {
+function firstReject(error) {
   const div = document.createElement('div');
 
   div.className = 'error';
   div.setAttribute('data-qa', 'notification');
-  div.textContent = message;
+  div.textContent = error.message;
 
   document.body.append(div);
 }
