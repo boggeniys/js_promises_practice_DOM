@@ -5,7 +5,7 @@ const firstPromise = new Promise((resolve, reject) => {
 
   document.addEventListener('click', () => {
     leftClick = true;
-    resolve();
+    resolve('First promise was resolved');
   });
 
   setTimeout(() => {
@@ -17,12 +17,12 @@ const firstPromise = new Promise((resolve, reject) => {
 
 const secondPromise = new Promise((resolve, reject) => {
   document.addEventListener('click', () => {
-    resolve();
+    resolve('Second promise was resolved');
   });
 
   document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
-    resolve();
+    resolve('Second promise was resolved');
   });
 });
 
@@ -48,42 +48,42 @@ const thirdPromise = new Promise((resolve, reject) => {
   });
 });
 
-function firstResolve() {
+function firstResolve(message) {
   const div = document.createElement('div');
 
   div.className = 'success';
   div.setAttribute('data-qa', 'notification');
-  div.textContent = 'First promise was resolved';
+  div.textContent = message;
 
   document.body.append(div);
 }
 
-function firstReject() {
+function firstReject(message) {
   const div = document.createElement('div');
 
   div.className = 'error';
   div.setAttribute('data-qa', 'notification');
-  div.textContent = 'First promise was rejected';
+  div.textContent = message;
 
   document.body.append(div);
 }
 
-function secondResolve() {
+function secondResolve(message) {
   const div = document.createElement('div');
 
   div.className = 'success';
   div.setAttribute('data-qa', 'notification');
-  div.textContent = 'Second promise was resolved';
+  div.textContent = message;
 
   document.body.append(div);
 }
 
-function thirdResolve() {
+function thirdResolve(message) {
   const div = document.createElement('div');
 
   div.className = 'success';
   div.setAttribute('data-qa', 'notification');
-  div.textContent = 'Third promise was resolved';
+  div.textContent = message;
 
   document.body.append(div);
 }
